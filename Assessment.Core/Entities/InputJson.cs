@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAssessment
+namespace Assessment.Core.Entities
 {
-    class Program
+    public class InputJson
     {
-        static void Main(string[] args)
-        {
-
-        }
+        public Service[] services { get; set; }
     }
+
 }
