@@ -9,6 +9,6 @@ namespace Assessment.Application.Interfaces
 {
     public interface IReadJsonFile
     {
-        Task<InputJson> ReadFile(string Location);
+        string ReadFile(string Location);
     }
 }

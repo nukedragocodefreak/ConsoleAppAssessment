@@ -12,28 +12,26 @@ namespace Assessment.Infrastructure.Repositories
 {
     public class ReadJsonFile : IReadJsonFile
     {
-        public async Task<InputJson> ReadFile(string Location)
+        public  string ReadFile(string Location)
         {
-
+       
             var inputData = "";
-           
+
             try
             {
                 using (var sr = new StreamReader(Location))
                 {
-                  inputData = await sr.ReadToEndAsync();            
+                    inputData = sr.ReadToEnd();
                 }
                 var response = JsonConvert.DeserializeObject<InputJson>(inputData);
 
-                return response;
+                return inputData;
             }
             catch (FileNotFoundException ex)
             {
-                inputData = ex.Message;
-                throw;
+               return ex.Message;
+              //'throw;
             }
-
-            //throw new NotImplementedException();
 
         }
 

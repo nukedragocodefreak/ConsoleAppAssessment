@@ -13,6 +13,7 @@ namespace Assessment.Infrastructure.Repositories
         public async Task<object> MakeRequests(InputJson input)
         {
             throw new NotImplementedException();
+
         }
     }
 }
