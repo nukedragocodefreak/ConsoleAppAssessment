@@ -35,6 +35,7 @@ namespace ConsoleAssessment
             Console.WriteLine(bL.ReadJsonFile(MenuMessages.Messages.Location));
             string input = bL.ReadJsonFile(MenuMessages.Messages.Location);
             bLRequest.MakeARequest(input, 0);
+
             Console.ReadKey();
         }
     }

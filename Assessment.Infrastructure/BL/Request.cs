@@ -1,6 +1,7 @@
 ﻿using Assessment.Core.Entities;
 using Assessment.Infrastructure.Requests;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,11 @@ namespace Assessment.Infrastructure.BL
             List<string> request = new List<string>();
             List<string> status = new List<string>();
 
+            var log = new LoggerConfiguration().WriteTo.Console().WriteTo.File("log.txt").CreateLogger();
+
             try
             {
+                log.Information("Start logging for the Make Request method");
                 var inputdata = JsonConvert.DeserializeObject<InputJson>(input);
                 RequestInfor[] getdata1 = new RequestInfor[inputdata.services[service].endpoints.Length];
 
@@ -39,15 +43,19 @@ namespace Assessment.Infrastructure.BL
 
                     HttpResponseMessage response = await client.GetAsync(getdata.BaseUrl + getdata.Resource);
                     status.Add(response.StatusCode.ToString());
+                    log.Information(response.StatusCode.ToString());
                     responseBody = await response.Content.ReadAsStringAsync();
                     request.Add(responseBody);
                     output = JsonConvert.SerializeObject(request);
                 }
+                log.Information("Finished with the requests");
                 return output;
             }
             catch (HttpRequestException e)
             {
+                log.Information(e.Message);
                 return "\nException Caught!" + e.Message;
+
             }
         }
     }
