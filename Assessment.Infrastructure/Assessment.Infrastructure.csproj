@@ -56,7 +56,7 @@
     <Compile Include="Repositories\MakeRequest.cs" />
     <Compile Include="Repositories\ReadJsonFile.cs" />
     <Compile Include="Requests\RequestInfor.cs" />
-    <Compile Include="Utility\Request.cs" />
+    <Compile Include="BL\Request.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Assessment.Application\Assessment.Application.csproj">
@@ -72,5 +72,6 @@
     <None Include="Data\endpoints.json" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

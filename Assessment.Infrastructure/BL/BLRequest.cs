@@ -16,9 +16,9 @@ namespace Assessment.Infrastructure.BL
             _makeRequest = makeRequest;
         }
 
-        public Task MakeARequest(string input)
+        public Task<string> MakeARequest(string input, int service)
         {
-            return _makeRequest.MakeRequests(input);
+            return _makeRequest.MakeRequests(input, service);
         }
     }
 }
