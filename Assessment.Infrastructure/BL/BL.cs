@@ -21,5 +21,7 @@ namespace Assessment.Infrastructure.BL
         {
           return  _readJson.ReadFile(location);
         }
+
+       
     }
 }

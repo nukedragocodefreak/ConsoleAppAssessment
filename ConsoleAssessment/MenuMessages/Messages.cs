@@ -11,6 +11,5 @@ namespace ConsoleAssessment.MenuMessages
         public static string Welcome = "Welcome to the Swapi/GeoPlugin Console Application";
         public static string Location = @"C:\Users\Noel\source\repos\ConsoleAssessment\ConsoleAssessment\Data\endpoints.json";
 
-
     }
 }

@@ -9,6 +9,6 @@ namespace Assessment.Application.Interfaces
 {
     public interface IMakeRequest
     {
-        Task<object> MakeRequests(InputJson input);
+        Task MakeRequests(string input);
     }
 }

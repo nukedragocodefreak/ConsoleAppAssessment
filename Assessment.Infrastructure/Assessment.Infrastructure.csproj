@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\BL.cs" />
+    <Compile Include="BL\BLRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MakeRequest.cs" />
     <Compile Include="Repositories\ReadJsonFile.cs" />
