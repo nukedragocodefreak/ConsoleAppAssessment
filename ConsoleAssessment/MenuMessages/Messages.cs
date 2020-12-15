@@ -9,7 +9,9 @@ namespace ConsoleAssessment.MenuMessages
     class Messages
     {
         public static string Welcome = "Welcome to the Swapi/GeoPlugin Console Application";
+        public static string outcome = "The First Service Did notRun Correctly, It is Being Run Again";
         public static string Location = @"C:\Users\Noel\source\repos\ConsoleAssessment\ConsoleAssessment\Data\endpoints.json";
+       
 
     }
 }

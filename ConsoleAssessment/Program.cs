@@ -1,6 +1,7 @@
 ﻿using Assessment.Application.Interfaces;
 using Assessment.Infrastructure.BL;
 using Assessment.Infrastructure.Repositories;
+using Assessment.Infrastructure;
 using ConsoleTables;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Unity;
+using System.IO;
 
 namespace ConsoleAssessment
 {
@@ -35,7 +37,20 @@ namespace ConsoleAssessment
             Console.WriteLine(bL.ReadJsonFile(MenuMessages.Messages.Location));
             string input = bL.ReadJsonFile(MenuMessages.Messages.Location);
             bLRequest.MakeARequest(input, 0);
-            bLRequest.MakeARequest(input, 1);
+            var status = File.ReadAllLines("statuses.txt");
+            var statuses = new List<string>(status);
+
+            if (statuses.ElementAt(0) == "OK" & statuses.ElementAt(1) == "OK" & statuses.ElementAt(2) == "OK")
+            {
+                bLRequest.MakeARequest(input, 1);
+            }
+            else
+            {
+                var table1 = new ConsoleTable(MenuMessages.Messages.outcome);
+                table1.Write(Format.Alternative);
+                bLRequest.MakeARequest(input, 0);
+            }
+
             Console.ReadKey();
         }
     }

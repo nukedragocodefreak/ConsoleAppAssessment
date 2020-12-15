@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -21,7 +22,7 @@ namespace Assessment.Infrastructure.BL
             string responseBody = "";
             var output = "";
             List<string> request = new List<string>();
-            List<string> status = new List<string>();
+            //List<string> status = new List<string>();
 
             var log = new LoggerConfiguration().WriteTo.Console().WriteTo.File("logrequests.txt").CreateLogger();
 
@@ -42,7 +43,11 @@ namespace Assessment.Infrastructure.BL
                     };
 
                     HttpResponseMessage response = await client.GetAsync(getdata.BaseUrl + getdata.Resource);
-                    status.Add(response.StatusCode.ToString());
+                    Globals.statuses.Add(response.StatusCode.ToString());
+                    StreamWriter file = new System.IO.StreamWriter("statuses.txt");
+                    foreach (string x in Globals.statuses)
+                        file.WriteLine(x);
+                    file.Close();
                     log.Information(response.StatusCode.ToString());
                     responseBody = await response.Content.ReadAsStringAsync();
                     request.Add(responseBody);
