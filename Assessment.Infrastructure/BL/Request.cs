@@ -23,7 +23,7 @@ namespace Assessment.Infrastructure.BL
             List<string> request = new List<string>();
             List<string> status = new List<string>();
 
-            var log = new LoggerConfiguration().WriteTo.Console().WriteTo.File("log.txt").CreateLogger();
+            var log = new LoggerConfiguration().WriteTo.Console().WriteTo.File("logrequests.txt").CreateLogger();
 
             try
             {

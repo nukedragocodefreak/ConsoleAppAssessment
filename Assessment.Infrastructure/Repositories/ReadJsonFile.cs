@@ -17,7 +17,7 @@ namespace Assessment.Infrastructure.Repositories
         public  string ReadFile(string Location)
         {  
             var inputData = "";
-            var log = new LoggerConfiguration().WriteTo.Console().WriteTo.File("log.txt") .CreateLogger();
+            var log = new LoggerConfiguration().WriteTo.Console().WriteTo.File("logreadjson.txt") .CreateLogger();
    
             try
             {
