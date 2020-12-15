@@ -6,4 +6,6 @@
 
 public static string Location = @"C:\Users\Noel\source\repos\ConsoleAssessment\ConsoleAssessment\Data\endpoints.json";
        
-       In ConsoleAssessment project, MenuMessages Folder,Messages Class
+       1. In ConsoleAssessment project
+       2. MenuMessages Folder
+       3. Messages Class
