@@ -36,19 +36,19 @@ namespace ConsoleAssessment
             table.Write(Format.Alternative);
             Console.WriteLine(bL.ReadJsonFile(MenuMessages.Messages.Location));
             string input = bL.ReadJsonFile(MenuMessages.Messages.Location);
-            bLRequest.MakeARequest(input, 0);
+            Console.WriteLine(bLRequest.MakeARequest(input, 0).Result);
             var status = File.ReadAllLines("statuses.txt");
             var statuses = new List<string>(status);
 
             if (statuses.ElementAt(0) == "OK" & statuses.ElementAt(1) == "OK" & statuses.ElementAt(2) == "OK")
             {
-                bLRequest.MakeARequest(input, 1);
+                Console.WriteLine(bLRequest.MakeARequest(input, 1).Result);
             }
             else
             {
                 var table1 = new ConsoleTable(MenuMessages.Messages.outcome);
                 table1.Write(Format.Alternative);
-                bLRequest.MakeARequest(input, 0);
+                Console.WriteLine(bLRequest.MakeARequest(input, 0).Result);
             }
 
             Console.ReadKey();
